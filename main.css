@@ -1,3 +1,12 @@
 body {
   background-color: bisque;
 }
+
+.navbar-brand {
+  display: flex;
+  flex-direction: row;
+}
+
+.footer-text {
+  font-size: small;
+}
