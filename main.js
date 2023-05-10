@@ -50,3 +50,38 @@ const profileCard = () => {
 renderToDom('#profileCard', domString);
 }
 profileCard();
+
+
+
+const packageSet = [
+  {
+    id: 1,
+    packageIcon: "https://pics.freeicons.io/uploads/icons/png/1504087701656419435-512.png",
+    packageName: "mpn",
+    packageDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Mattis aliquam faucibus purus in."  
+  },
+  {
+    id: 2,
+    packageIcon: "https://pics.freeicons.io/uploads/icons/png/19278535441626676447-512.png",
+    packageName: "bocker",
+    packageDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Mattis aliquam faucibus purus in."  
+  },
+  {
+    id: 3,
+    packageIcon: "https://pics.freeicons.io/uploads/icons/png/5753257571656419435-512.png",
+    packageName: "nuGGet",
+    packageDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Mattis aliquam faucibus purus in."  
+  },
+  {
+    id: 4,
+    packageIcon: "https://pics.freeicons.io/uploads/icons/png/10105125721601550891-512.png",
+    packageName: "sapphireStones",
+    packageDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Mattis aliquam faucibus purus in."  
+  },
+  {
+    id: 5,
+    packageIcon: "https://pics.freeicons.io/uploads/icons/png/21319291521582692251-512.png",
+    packageName: "Haven",
+    packageDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Mattis aliquam faucibus purus in."  
+  },
+];
