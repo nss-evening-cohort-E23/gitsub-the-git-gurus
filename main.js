@@ -2,28 +2,30 @@
 const user = [
   {
     id: 1,
-    imageUrl: "https://www.animationmagazine.net/wordpress/wp-content/uploads/ali-wong-post.jpg",
+    imageUrl:
+      "https://www.animationmagazine.net/wordpress/wp-content/uploads/ali-wong-post.jpg",
     userName: "Amy Lau",
-    userBio: "Small business owner who operates a plant-selling business called Kōyōhaus. Recently involved in a road rage incident.",
+    userBio:
+      "Small business owner who operates a plant-selling business called Kōyōhaus. Recently involved in a road rage incident.",
     socialMedia: [
       {
         smName: "Twitter",
-        url: "https://twitter.com"
+        url: "https://twitter.com",
       },
       {
         smName: "LinkedIn",
-        url: "https://linkedin.com"
+        url: "https://linkedin.com",
       },
       {
         smName: "Instagram",
-        url: "https://instagram.com"
+        url: "https://instagram.com",
       },
       {
         smName: "TikTok",
-        url: "https://tiktok.com"
-      }
+        url: "https://tiktok.com",
+      },
     ],
-  }
+  },
 ];
 
 // render to DOM
@@ -47,6 +49,19 @@ const profileCard = () => {
     <a href="${user[0].socialMedia[3].url}" class="card-link">${user[0].socialMedia[3].smName}</a>
   </div>
 </div>`;
-renderToDom('#profileCard', domString);
-}
+  renderToDom("#profileCard", domString);
+};
 profileCard();
+
+// Overview - Pinned Repos
+
+// 1. Create a container that holds pinned repos
+// 2. Create an array of objects that will hold title and description data of pinned repos
+// 3. Create cards that will display the information on the DOM
+// 4. Loop/Iterate through the cards
+// ** WILL NEED DELETE FUNCTIONALITY **
+
+//Target the div which will hold the array of pinned repos
+const pinnedRepo = document.querySelector("#pinnedRepo");
+
+// Create a form
