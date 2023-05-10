@@ -48,6 +48,9 @@ const profileCard = () => {
   </div>
 </div>`;
 
+renderToDom('#profileCard', domString);
+}
+profileCard();
 
 const projects = [
   {
@@ -64,12 +67,22 @@ const projects = [
   },
   {
     id:3,
-    projName: ""
+    projName: "Forster's merge launch",
+    projStatus:true,
+    projDesc: "review merge launch final touches"
+  },
+  {
+    id:4,
+    projName: "lorem ipsum",
+    projStatus: true,
+    projDesc: "lorem ipsum"
+  },
+  {
+    id:5,
+    projName: "lorem ipsum",
+    projStatus: true,
+    projDesc: "lorem ipsum"
   }
 
   
-]
-
-renderToDom('#profileCard', domString);
-}
-profileCard();
+];
