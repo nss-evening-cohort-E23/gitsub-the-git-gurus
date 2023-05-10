@@ -47,6 +47,29 @@ const profileCard = () => {
     <a href="${user[0].socialMedia[3].url}" class="card-link">${user[0].socialMedia[3].smName}</a>
   </div>
 </div>`;
+
+
+const projects = [
+  {
+    id:1,
+    projName: "KoyoHaus-Info",
+    projStatus: true,
+    projDesc: "update webpage about me, info, etc"
+  },
+  {
+  id:2,
+  projName: "Accident Lawsuit Go-fund",
+  projStatus:true,
+  projDesc: "filter out/delete negative comments on ring camera videos"
+  },
+  {
+    id:3,
+    projName: ""
+  }
+
+  
+]
+
 renderToDom('#profileCard', domString);
 }
 profileCard();
