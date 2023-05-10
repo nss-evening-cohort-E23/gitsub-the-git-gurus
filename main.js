@@ -60,8 +60,42 @@ profileCard();
 // 3. Create cards that will display the information on the DOM
 // 4. Loop/Iterate through the cards
 // ** WILL NEED DELETE FUNCTIONALITY **
+const reposOnDom = () => {
+  let pinnedRepoString = `<div class = "card">
+  <h5 class="card-title">Pinned</h5>
+
+  </div>`;
+  renderToDom("#pinnedRepo", pinnedRepoString);
+};
+reposOnDom();
 
 //Target the div which will hold the array of pinned repos
 const pinnedRepo = document.querySelector("#pinnedRepo");
 
 // Create a form
+const addProject = document.querySelector("#addProject");
+
+// Form Renders to DOM
+const newProject = () => {
+  let formString = `<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">Create Project</h1>
+    <h6 class="card-subtitle mb-2 text-body-secondary">subtext</h6>
+   <form> <div class="mb-3">
+  
+   <label for="floatingInput" class="form-label">Project Name</label>
+   <input type="text" class="form-control" id="projectName" placeholder="Project Name" required>
+ </div>
+ <div class="mb-3">
+   <label for="projectDesc" class="form-label">Description</label>
+   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+ </div>  </form>
+
+    <button class="btn btn-success" id="addRepo">Create repo</button>
+  </div>
+</div>`;
+  renderToDom("#addProject", formString);
+};
+newProject();
+
+// CREATE NEW PROJECT
