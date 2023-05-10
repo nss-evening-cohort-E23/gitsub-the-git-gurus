@@ -121,3 +121,23 @@ const packageSet = [
     packageDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Mattis aliquam faucibus purus in."  
   },
 ];
+
+
+//repo form render to DOM
+const repoFormOnDom = () => {
+  let domString = `<form id="repo-form">
+  <div class="mb-3">
+    <label for="repo-name-input" class="form-label">Repository Name</label>
+    <input type="text" class="form-control" id="repo-name-input" required>
+  </div>
+  <div class="mb-3">
+  <label for="name-input" class="form-label">Description (optional)</label>
+  <input type="text" class="form-control" id="name-input">
+</div>
+  <button type="submit" id="sort-btn" class="btn btn-primary">Create repository</button>
+</form>`;
+
+  renderToDom("#repoForm", domString);
+};
+
+repoFormOnDom();
