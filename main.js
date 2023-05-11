@@ -34,6 +34,7 @@ const renderToDom = (divID, htmlToRender) => {
   selectedDiv.innerHTML = htmlToRender;
 };
 
+
 // profile card render to DOM
 const profileCard = () => {
   let domString = `<div class="card" style="width: 18rem;">
@@ -176,6 +177,31 @@ const packageSet = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Mattis aliquam faucibus purus in.",
   },
 ];
+
+// render packages to DOM
+const packagesContainer = document.querySelector("#packagesContainer");
+
+const packageCards = (array) => {
+  let domString = "";
+  for (package of array) {
+    domString += `<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="${package.packageIcon}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">${package.packageName}</h5>
+          <p class="card-text">${package.packageDesc}</p>
+        </div>
+      </div>
+    </div>
+  </div>`
+  }
+  renderToDom("#packagesContainer", domString);
+};
+packageCards(packageSet);
+console.log(packageCards);
 
 //repo form render to DOM
 const repoFormOnDom = () => {
