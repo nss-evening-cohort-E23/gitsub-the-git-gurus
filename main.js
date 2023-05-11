@@ -52,8 +52,6 @@ const profileCard = () => {
   renderToDom("#profileCard", domString);
 };
 
-renderToDom('#profileCard', domString);
-}
 profileCard();
 
 // Overview - Pinned Repos
@@ -105,74 +103,79 @@ newProject();
 
 const projects = [
   {
-    id:1,
+    id: 1,
     projName: "KoyoHaus-Info",
     projStatus: true,
-    projDesc: "update webpage about me, info, etc"
+    projDesc: "update webpage about me, info, etc",
   },
   {
-  id:2,
-  projName: "Accident Lawsuit Go-fund",
-  projStatus:true,
-  projDesc: "filter out/delete negative comments on ring camera videos"
+    id: 2,
+    projName: "Accident Lawsuit Go-fund",
+    projStatus: true,
+    projDesc: "filter out/delete negative comments on ring camera videos",
   },
   {
-    id:3,
+    id: 3,
     projName: "Forster's merge launch",
-    projStatus:true,
-    projDesc: "review merge launch final touches"
+    projStatus: true,
+    projDesc: "review merge launch final touches",
   },
   {
-    id:4,
+    id: 4,
     projName: "lorem ipsum",
     projStatus: true,
-    projDesc: "lorem ipsum"
+    projDesc: "lorem ipsum",
   },
   {
-    id:5,
+    id: 5,
     projName: "lorem ipsum",
     projStatus: true,
-    projDesc: "lorem ipsum"
-  }
-
-  
+    projDesc: "lorem ipsum",
+  },
 ];
-
-
 
 const packageSet = [
   {
     id: 1,
-    packageIcon: "https://pics.freeicons.io/uploads/icons/png/1504087701656419435-512.png",
+    packageIcon:
+      "https://pics.freeicons.io/uploads/icons/png/1504087701656419435-512.png",
     packageName: "mpn",
-    packageDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Mattis aliquam faucibus purus in."  
+    packageDesc:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Mattis aliquam faucibus purus in.",
   },
   {
     id: 2,
-    packageIcon: "https://pics.freeicons.io/uploads/icons/png/19278535441626676447-512.png",
+    packageIcon:
+      "https://pics.freeicons.io/uploads/icons/png/19278535441626676447-512.png",
     packageName: "bocker",
-    packageDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Mattis aliquam faucibus purus in."  
+    packageDesc:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Mattis aliquam faucibus purus in.",
   },
   {
     id: 3,
-    packageIcon: "https://pics.freeicons.io/uploads/icons/png/5753257571656419435-512.png",
+    packageIcon:
+      "https://pics.freeicons.io/uploads/icons/png/5753257571656419435-512.png",
     packageName: "nuGGet",
-    packageDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Mattis aliquam faucibus purus in."  
+    packageDesc:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Mattis aliquam faucibus purus in.",
   },
   {
     id: 4,
-    packageIcon: "https://pics.freeicons.io/uploads/icons/png/10105125721601550891-512.png",
+    packageIcon:
+      "https://pics.freeicons.io/uploads/icons/png/10105125721601550891-512.png",
     packageName: "sapphireStones",
-    packageDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Mattis aliquam faucibus purus in."  
+    packageDesc:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Mattis aliquam faucibus purus in.",
   },
   {
     id: 5,
-    packageIcon: "https://pics.freeicons.io/uploads/icons/png/21319291521582692251-512.png",
+    packageIcon:
+      "https://pics.freeicons.io/uploads/icons/png/21319291521582692251-512.png",
     packageName: "Haven",
-    packageDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Mattis aliquam faucibus purus in."  
+    packageDesc:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Mattis aliquam faucibus purus in.",
   },
 ];
-
 
 //repo form render to DOM
 const repoFormOnDom = () => {
