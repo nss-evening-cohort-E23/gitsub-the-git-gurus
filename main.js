@@ -186,7 +186,7 @@ const repoFormOnDom = () => {
   </div>
   <div class="mb-3">
   <label for="name-input" class="form-label">Description (optional)</label>
-  <input type="text" class="form-control" id="name-input">
+  <input type="textarea" class="form-control" id="name-input">
 </div>
   <button type="submit" id="sort-btn" class="btn btn-primary">Create repository</button>
 </form>`;
@@ -195,3 +195,50 @@ const repoFormOnDom = () => {
 };
 
 repoFormOnDom();
+
+
+
+const repo = [
+  {
+    id: 1,
+    repoName: 'Korean Curry',
+    repoDesc: 'Kung pao pepper figs cranberry spritzer eating together blueberries bananas samosa coconut rice sparkling pomegranate punch soy milk naga viper paprika simmer Mexican fiesta.',
+    repoStar: true,
+  },
+  {
+    id: 2,
+    repoName: 'Banh Mi',
+    repoDesc: 'Street style Thai basil tacos casserole citrusy almonds springtime strawberry mushroom risotto soba noodles coconut milk pinch of yum summer fruit salad ginger tofu mediterranean banana bread chili pepper sleepy morning tea refreshing cucumber splash dessert sweet potato black bean burrito lemongrass salad sweet potato walnut mushroom tart alfalfa sprouts strawberry mango smoothie raspberry fizz miso dressing.',
+    repoStar: false,
+  },
+  {
+    id: 3,
+    repoName: 'Hot Dog',
+    repoDesc: 'Blood orange smash onion mangos Bolivian rainbow pepper soup udon noodles dragon fruit lemon red lentil soup lemon tahini dressing coriander sriracha pecans.',
+    repoStar: false,
+  },
+  {
+    id: 4,
+    repoName: 'Sushi',
+    repoDesc: 'Jalapeño seeds Italian linguine puttanesca Caribbean red habanero summer vine tomatoes kimchi overflowing berries cumin broccoli creamy cauliflower alfredo sauce cocoa chilies cilantro lime vinaigrette.',
+    repoStar: true,
+  },
+  {
+    id: 4,
+    repoName: 'Eggplant',
+    repoDesc: 'Bulgarian carrot apple vinaigrette pesto chocolate peanut butter dip blueberry chia seed jam red lentil curry peach strawberry mango cashew strawberries cinnamon toast banana bread Thai super chili spicy summertime peanut butter creamiest smoked tofu butternut mix with lemon lime minty crumbled lentils sandwiches pasta almond milk peanut butter crunch.',
+    repoStar: false,
+  },
+  {
+    id: 5,
+    repoName: 'Tiramisu',
+    repoDesc: 'Asian pear black bean wraps zesty tofu pad thai guacamole raspberries matcha vegan crispy coconut grains falafel bites mint Malaysian vitamin glow frosted gingerbread bites picnic.',
+    repoStar: true,
+  },
+  {
+    id: 6,
+    repoName: 'Falafel',
+    repoDesc: 'Avocado basil pesto fruit smash golden cayenne pepper tabasco pepper dill avocado Indian spiced lemonade zest cremini mushrooms shaved almonds portobello mushrooms lemon basil walnut pesto tart.',
+    repoStar: false,
+  }
+];
