@@ -179,25 +179,23 @@ const packageSet = [
 ];
 
 // render packages to DOM
-const packagesContainer = document.querySelector("#packagesContainer");
-
 const packageCards = (array) => {
-  let domString = "";
-  for (package of array) {
-    domString += `<div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="${package.packageIcon}" class="img-fluid rounded-start" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">${package.packageName}</h5>
-          <p class="card-text">${package.packageDesc}</p>
+    let domString = "";
+    for (package of array) {
+      domString += `<div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="${package.packageIcon}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">${package.packageName}</h5>
+            <p class="card-text">${package.packageDesc}</p>
+          </div>
         </div>
       </div>
-    </div>
-  </div>`
-  }
+    </div>`
+    }
   renderToDom("#packagesContainer", domString);
 };
 packageCards(packageSet);
@@ -268,3 +266,26 @@ const repo = [
     repoStar: false,
   }
 ];
+
+
+const packageForm = () => {
+  let formString = `<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">Create Package</h1>
+    <h6 class="card-subtitle mb-2 text-body-secondary">subtext</h6>
+   <form> <div class="mb-3">
+  
+   <label for="floatingInput" class="form-label">Package Name</label>
+   <input type="text" class="form-control" id="packageName" placeholder="Package Name" required>
+ </div>
+ <div class="mb-3">
+   <label for="packageDesc" class="form-label">Description</label>
+   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+ </div>  </form>
+
+    <button class="btn btn-success" id="addPackage">Create Package</button>
+  </div>
+</div>`;
+  renderToDom("#packagesForm", formString);
+};
+packageForm();
