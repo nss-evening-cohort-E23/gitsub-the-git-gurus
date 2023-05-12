@@ -1,4 +1,4 @@
-//profile data
+// //profile data
 const user = [
   {
     id: 1,
