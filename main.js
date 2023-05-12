@@ -28,78 +28,6 @@ const user = [
   },
 ];
 
-// render to DOM
-const renderToDom = (divID, htmlToRender) => {
-  const selectedDiv = document.querySelector(divID);
-  selectedDiv.innerHTML = htmlToRender;
-};
-
-
-// profile card render to DOM
-const profileCard = () => {
-  let domString = `<div class="card" style="width: 18rem;">
-  <img src="${user[0].imageUrl}" class="card-img-top" alt="Amy Lau Photo">
-  <div class="card-body">
-    <h5 class="card-title">${user[0].userName}</h5>
-    <p class="card-text">${user[0].userBio}</p>
-  </div>
-  <div class="card-body">
-    <a href="${user[0].socialMedia[0].url}" class="card-link">${user[0].socialMedia[0].smName}</a>
-    <a href="${user[0].socialMedia[1].url}" class="card-link">${user[0].socialMedia[1].smName}</a>
-    <a href="${user[0].socialMedia[2].url}" class="card-link">${user[0].socialMedia[2].smName}</a>
-    <a href="${user[0].socialMedia[3].url}" class="card-link">${user[0].socialMedia[3].smName}</a>
-  </div>
-</div>`;
-  renderToDom("#profileCard", domString);
-};
-
-profileCard();
-
-// Overview - Pinned Repos
-
-// 1. Create a container that holds pinned repos
-// 2. Create an array of objects that will hold title and description data of pinned repos
-// 3. Create cards that will display the information on the DOM
-// 4. Loop/Iterate through the cards
-// ** WILL NEED DELETE FUNCTIONALITY **
-const reposOnDom = () => {
-  let pinnedRepoString = `<div class = "card">
-  <h5 class="card-title">Pinned</h5>
-
-  </div>`;
-  renderToDom("#pinnedRepo", pinnedRepoString);
-};
-reposOnDom();
-
-//Target the div which will hold the array of pinned repos
-const pinnedRepo = document.querySelector("#pinnedRepo");
-
-// Create a form
-const addProject = document.querySelector("#addProject");
-
-// Form Renders to DOM
-const newProject = () => {
-  let formString = `<div class="card">
-  <div class="card-body">
-    <h1 class="card-title">Create Project</h1>
-    <h6 class="card-subtitle mb-2 text-body-secondary">subtext</h6>
-   <form> <div class="mb-3">
-  
-   <label for="floatingInput" class="form-label">Project Name</label>
-   <input type="text" class="form-control" id="projectName" placeholder="Project Name" required>
- </div>
- <div class="mb-3">
-   <label for="projectDesc" class="form-label">Description</label>
-   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
- </div>  </form>
-
-    <button class="btn btn-success" id="addRepo">Create repo</button>
-  </div>
-</div>`;
-  renderToDom("#addProject", formString);
-};
-newProject();
-
 // CREATE NEW PROJECT
 
 const projects = [
@@ -178,50 +106,6 @@ const packageSet = [
   },
 ];
 
-// render packages to DOM
-const packageCards = (array) => {
-    let domString = "";
-    for (package of array) {
-      domString += `<div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="${package.packageIcon}" class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">${package.packageName}</h5>
-            <p class="card-text">${package.packageDesc}</p>
-          </div>
-        </div>
-      </div>
-    </div>`
-    }
-  renderToDom("#packagesContainer", domString);
-};
-packageCards(packageSet);
-console.log(packageCards);
-
-//repo form render to DOM
-const repoFormOnDom = () => {
-  let domString = `<form id="repo-form">
-  <div class="mb-3">
-    <label for="repo-name-input" class="form-label">Repository Name</label>
-    <input type="text" class="form-control" id="repo-name-input" required>
-  </div>
-  <div class="mb-3">
-  <label for="name-input" class="form-label">Description (optional)</label>
-  <input type="textarea" class="form-control" id="name-input">
-</div>
-  <button type="submit" id="sort-btn" class="btn btn-primary">Create repository</button>
-</form>`;
-
-  renderToDom("#repoForm", domString);
-};
-
-repoFormOnDom();
-
-
-
 const repo = [
   {
     id: 1,
@@ -267,7 +151,120 @@ const repo = [
   }
 ];
 
+// render to DOM
+const renderToDom = (divID, htmlToRender) => {
+  const selectedDiv = document.querySelector(divID);
+  selectedDiv.innerHTML = htmlToRender;
+};
 
+
+// profile card render to DOM
+const profileCard = () => {
+  let domString = `<div class="card" style="width: 18rem;">
+  <img src="${user[0].imageUrl}" class="card-img-top" alt="Amy Lau Photo">
+  <div class="card-body">
+    <h5 class="card-title">${user[0].userName}</h5>
+    <p class="card-text">${user[0].userBio}</p>
+  </div>
+  <div class="card-body">
+    <a href="${user[0].socialMedia[0].url}" class="card-link">${user[0].socialMedia[0].smName}</a>
+    <a href="${user[0].socialMedia[1].url}" class="card-link">${user[0].socialMedia[1].smName}</a>
+    <a href="${user[0].socialMedia[2].url}" class="card-link">${user[0].socialMedia[2].smName}</a>
+    <a href="${user[0].socialMedia[3].url}" class="card-link">${user[0].socialMedia[3].smName}</a>
+  </div>
+</div>`;
+  renderToDom("#profileCard", domString);
+};
+
+
+// Overview - Pinned Repos to render to Dom
+
+// 1. Create a container that holds pinned repos
+// 2. Create an array of objects that will hold title and description data of pinned repos
+// 3. Create cards that will display the information on the DOM
+// 4. Loop/Iterate through the cards
+// ** WILL NEED DELETE FUNCTIONALITY **
+
+//Target the div which will hold the array of pinned repos
+const pinnedRepo = document.querySelector("#pinnedRepo");
+
+const reposOnDom = () => {
+  let pinnedRepoString = `<div class = "card">
+  <h5 class="card-title">Pinned</h5>
+
+  </div>`;
+  renderToDom("#pinnedRepo", pinnedRepoString);
+};
+
+
+// render package cards to DOM
+const packageCards = (array) => {
+    let domString = "";
+    for (package of array) {
+      domString += `<div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="${package.packageIcon}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">${package.packageName}</h5>
+            <p class="card-text">${package.packageDesc}</p>
+          </div>
+        </div>
+      </div>
+    </div>`
+    }
+  renderToDom("#packagesContainer", domString);
+};
+
+// Create a form - variables for form event listeners
+const addProject = document.querySelector("#addProject");
+const addRepo = document.querySelector("#repoForm");
+const addPackage = document.querySelector("#packagesForm");
+
+
+// Project Form Renders to DOM
+const newProject = () => {
+  let formString = `<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">Create Project</h1>
+    <h6 class="card-subtitle mb-2 text-body-secondary">subtext</h6>
+   <form> <div class="mb-3">
+  
+   <label for="floatingInput" class="form-label">Project Name</label>
+   <input type="text" class="form-control" id="projectName" placeholder="Project Name" required>
+ </div>
+ <div class="mb-3">
+   <label for="projectDesc" class="form-label">Description</label>
+   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+ </div>  </form>
+
+    <button class="btn btn-success" id="addRepo">Create repo</button>
+  </div>
+</div>`;
+  renderToDom("#addProject", formString);
+};
+
+
+//repo form render to DOM
+const repoFormOnDom = () => {
+  let domString = `<form id="repo-form">
+  <div class="mb-3">
+    <label for="repo-name-input" class="form-label">Repository Name</label>
+    <input type="text" class="form-control" id="repo-name-input" required>
+  </div>
+  <div class="mb-3">
+  <label for="name-input" class="form-label">Description (optional)</label>
+  <input type="textarea" class="form-control" id="name-input">
+</div>
+  <button type="submit" id="sort-btn" class="btn btn-primary">Create repository</button>
+</form>`;
+  renderToDom("#repoForm", domString);
+};
+
+
+// pakage form render to dom
 const packageForm = () => {
   let formString = `<div class="card">
   <div class="card-body">
@@ -288,4 +285,26 @@ const packageForm = () => {
 </div>`;
   renderToDom("#packagesForm", formString);
 };
-packageForm();
+
+
+const app = () => {
+  document.addEventListener('DOMContentLoaded', function() {
+    profileCard();
+  }, false);
+  if (document.URL.includes("index.html")) {
+      profileCard();
+      newProject();
+  } if (document.URL.includes("repos.html")) {
+    repoFormOnDom();
+    profileCard();
+    reposOnDom();
+  } if (document.URL.includes("packages.html")) {
+    window.onload = () => {
+      packageCards(packageSet);
+      packageForm();
+      profileCard();
+    }; 
+  }
+};
+
+app();
