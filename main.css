@@ -17,9 +17,38 @@ h1 {
   font-size: 32px;
 }
 
+#container {
+  display:flex;
+  flex-wrap:nowrap;
+}
+
 #projectsList {
   display:flex;
+  background-color:black;
   flex-direction:column;
   width:500px;
-  text-align:left;
+  align-content:center;
+  font-size:10px;
+  
+}
+
+#clock {
+ 
+}
+
+.card {
+  background-color:black;
+  color:white;
+  border:.5px solid darkgray;
+}
+
+#projectsListBody {
+  display:flex;
+  justify-content:flex-start;
+  flex-direction:row;
+  
+}
+
+#dots {
+  margin-left:40%;
 }

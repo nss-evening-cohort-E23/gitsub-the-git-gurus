@@ -53,13 +53,13 @@ const projects = [
     id: 4,
     projName: "lorem ipsum",
     projStatus: true,
-    projDesc: "lorem ipsum",
+    projDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     id: 5,
     projName: "lorem ipsum",
     projStatus: true,
-    projDesc: "lorem ipsum",
+    projDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
 ];
 
@@ -240,14 +240,19 @@ const packageCards = (array) => {
 const projectsList = (array) => {
   let domString = "";
   for(const project of array) {
-    domString += `<div class="card" style="height: 5rem;">
-    <div class="card-body">
-      <p class="card-text">${project.projName} </p>
+    domString += `<div class="card" id="projectList" style="height: 6rem;">
+    <div class="card-body" id="projectsListBody">
+    
+      <p class="card-text"> ${project.projName} </p>
       <p class="card-text">${project.projDesc}</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <i class="bi bi-three-dots" id="dots"></i>
+      <p class="card-text">
+      </p>
     </div>
+    <small class="text"><i class="bi bi-clock"></i> Last updated 3 mins ago</small>
+
   </div>`
-  }
+  };
   renderToDom("#projectsList", domString);
 }
 
@@ -272,10 +277,12 @@ const newProject = () => {
  </div>
  <div class="mb-3">
    <label for="projectDesc" class="form-label">Description</label>
-   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
- </div>  </form>
+   <textarea class="form-control" id="projectDescription" rows="3"></textarea>
+ </div> 
+ <button class="btn btn-success" id="addRepo">Create repo</button>
+  </form>
 
-    <button class="btn btn-success" id="addRepo">Create repo</button>
+    
   </div>
 </div>`;
   renderToDom("#addProject", formString);
@@ -330,7 +337,6 @@ const packageForm = () => {
 
 
 
-
 const app = () => {
   document.addEventListener('DOMContentLoaded', function() {
     profileCard();
@@ -353,6 +359,20 @@ const app = () => {
     profileCard();
     newProject();
     projectsList(projects);
+
+    const createProject = (e) => {
+      e.preventDefault();
+    
+      const newProjList = {
+        id:projects.length + 1,
+        projName: document.getElementById('projectName').value,
+        projDesc: document.getElementById('projectDescription').value,
+      }
+      projects.push(newProjList);
+      projectsList(projects);
+      createProject.reset();
+    };
+    addProject.addEventListener('submit', createProject);
   }
 };
 
