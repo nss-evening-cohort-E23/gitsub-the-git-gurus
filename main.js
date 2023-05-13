@@ -215,9 +215,17 @@ const reposOnDom = (array) => {
 const repoListOnDom = (array) => {
   let domString = "";
   for (const repo of array) {
+
+    domString += `<div class="card" id="repo-card" style="width: 40rem height: 10rem;">
     domString += `<div class="card" id="${repo.repoName}-card" style="width: 18rem;">
     <div class="card-header">${repo.repoName}</div>
     <div class="card-body">
+      <div id="repo-card-body">
+        <p class="card-text">${repo.repoDesc}</p>
+        <button class="btn" id="star--${repo.id}">⭐</button>
+      </div>
+    </div>
+  </div>`
       <p class="card-text">${repo.repoDesc}}</p>
       <button class="btn" id="star--${repo.id}">⭐</button>
     </div>
@@ -299,7 +307,7 @@ const repoForm = () => {
   let formString = `<div class="card">
   <div class="card-body">
     <h1 class="card-title">Create Repository</h1>
-   <form> <div class="mb-3">
+   <form id="repoFormId"> <div class="mb-3">
   
    <label for="repoName" class="form-label">Repository Name</label>
    <input type="text" class="form-control" id="repoName" required>
@@ -307,13 +315,17 @@ const repoForm = () => {
  <div class="mb-3">
    <label for="repoDesc" class="form-label">Description</label>
    <textarea class="form-control" id="repoDesc" rows="3"></textarea>
- </div>  </form>
+ </div>  
+     <button class="btn btn-success" id="addRepo">Create repository</button>
+ </form>
 
-    <button class="btn btn-success" id="addRepo">Create repository</button>
+
   </div>
 </div>`;
   renderToDom("#repoForm", formString);
 };
+
+
 
 // pakage form render to dom
 const packageForm = () => {
@@ -336,6 +348,10 @@ const packageForm = () => {
 </div>`;
   renderToDom("#packagesForm", formString);
 };
+
+
+
+
 
 const app = () => {
   document.addEventListener(
@@ -370,6 +386,38 @@ const app = () => {
     repoForm();
     profileCard();
     repoListOnDom(repo);
+    //create a new repository
+    const repoFormId = document.getElementById('repoFormId');
+
+    const createRepository = (e) => {
+      e.preventDefault();
+      
+      const newRepoObj = {
+        id: repo.length + 1,
+        repoName: document.getElementById("repoName").value,
+        repoDesc: document.getElementById("repoDesc").value,
+      };
+      
+      repo.unshift(newRepoObj);
+      repoListOnDom(repo);
+      repoFormId.reset();
+      
+    };
+    //search for a repository (repos.html)
+    const repoSearch = (event) => {
+    const eventLC = event.target.value.toLowerCase();
+    const searchResult = repo.filter(item =>
+    item.repoName.toLowerCase().includes(eventLC) ||
+    item.repoDesc.toLowerCase().includes(eventLC)
+  );
+
+      repoListOnDom(searchResult);
+    }
+    //target search input and listen for keyup to search
+    document.querySelector('#searchInput').addEventListener('keyup', repoSearch);
+     
+//add an event listener to the form submit button and pass in callback function
+repoFormId.addEventListener('submit', createRepository);
   }
   if (document.URL.includes("packages.html")) {
     window.onload = () => {

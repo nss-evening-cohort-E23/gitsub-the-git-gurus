@@ -38,13 +38,25 @@
     </nav>
 
   </div>
-  <!-- PROFILE CARD -->
-  <div id="profileCard"></div>
 
-  <div id="repoList"></div>
+  <div id="repo-page-layout">
+    <!-- PROFILE CARD -->
+    <div id="profileCard"></div>
+    <div id="repo-list-form-div">
+      <!-- SEARCH BOX -->
+      <div class="input-group mb-3" id="repo-search-box">
+        <input type="text" class="form-control" id="searchInput" placeholder="Find a repository...">
+        <label for="searchInput">Search</label>
+      </div>
 
-  <div id="repoForm"></div>
-  <p>TEST DIV FOR REPOS</p>
+      <!-- REPO LIST -->
+      <div id="repoList"></div>
+      <!-- REPO FORM -->
+      <div id="repoForm"></div>
+    </div>
+  </div>
+
+
 
  <!-- FOOTER -->
  <div id="footer">
