@@ -373,6 +373,17 @@ const app = () => {
       createProject.reset();
     };
     addProject.addEventListener('submit', createProject);
+
+    const search = (event) => {
+      const eventLC = event.target.value.toLowerCase();
+      const searchResult = projects.filter(project =>
+        project.projName.toLowerCase().includes(eventLC) ||
+        project.projDesc.toLowerCase().includes(eventLC)
+        );
+        projectsList(searchResult);
+    };
+    document.querySelector('#searchInput').addEventListener('keyup', search);
+    
   }
 };
 
