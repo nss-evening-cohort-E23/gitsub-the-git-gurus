@@ -158,6 +158,7 @@ const renderToDom = (divID, htmlToRender) => {
 };
 
 
+
 // profile card render to DOM
 const profileCard = () => {
   let domString = `<div class="card" style="width: 18rem;">
@@ -194,6 +195,24 @@ const reposOnDom = () => {
 
   </div>`;
   renderToDom("#pinnedRepo", pinnedRepoString);
+};
+
+
+//render full repo list to DOM (repos page)
+const repoListOnDom = (array) => {
+  let domString = "";
+  for (const repo of array) {
+
+    domString += `<div class="card" id="${repo.repoName}-card" style="width: 18rem;">
+    <div class="card-header">${repo.repoName}</div>
+    <div class="card-body">
+      <p class="card-text">${repo.repoDesc}}</p>
+      <button class="btn" id="star--${repo.id}">⭐</button>
+    </div>
+  </div>`
+  }
+
+  renderToDom("#repoList", domString);
 };
 
 
@@ -247,21 +266,28 @@ const newProject = () => {
 };
 
 
-//repo form render to DOM
-const repoFormOnDom = () => {
-  let domString = `<form id="repo-form">
-  <div class="mb-3">
-    <label for="repo-name-input" class="form-label">Repository Name</label>
-    <input type="text" class="form-control" id="repo-name-input" required>
+// repo form render to DOM
+const repoForm = () => {
+  let formString = `<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">Create Repository</h1>
+   <form> <div class="mb-3">
+  
+   <label for="repoName" class="form-label">Repository Name</label>
+   <input type="text" class="form-control" id="repoName" required>
+ </div>
+ <div class="mb-3">
+   <label for="repoDesc" class="form-label">Description</label>
+   <textarea class="form-control" id="repoDesc" rows="3"></textarea>
+ </div>  </form>
+
+    <button class="btn btn-success" id="addRepo">Create repository</button>
   </div>
-  <div class="mb-3">
-  <label for="name-input" class="form-label">Description (optional)</label>
-  <input type="textarea" class="form-control" id="name-input">
-</div>
-  <button type="submit" id="sort-btn" class="btn btn-primary">Create repository</button>
-</form>`;
-  renderToDom("#repoForm", domString);
+</div>`;
+  renderToDom("#repoForm", formString);
 };
+
+
 
 
 // pakage form render to dom
@@ -287,6 +313,8 @@ const packageForm = () => {
 };
 
 
+
+
 const app = () => {
   document.addEventListener('DOMContentLoaded', function() {
     profileCard();
@@ -294,10 +322,11 @@ const app = () => {
   if (document.URL.includes("index.html")) {
       profileCard();
       newProject();
+      reposOnDom();
   } if (document.URL.includes("repos.html")) {
-    repoFormOnDom();
+    repoForm();
     profileCard();
-    reposOnDom();
+    repoListOnDom(repo);
   } if (document.URL.includes("packages.html")) {
     window.onload = () => {
       packageCards(packageSet);
