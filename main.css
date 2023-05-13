@@ -2,8 +2,6 @@ body {
   background-color: black;
 }
 
-
-
 .navbar-brand {
   display: flex;
   flex-direction: row;
@@ -18,8 +16,8 @@ h1 {
 }
 
 #projectsList {
-  display:flex;
-  flex-direction:column;
-  width:500px;
-  text-align:left;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  text-align: left;
 }
