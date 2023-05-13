@@ -196,7 +196,7 @@ const profileCard = () => {
 const pinnedRepo = document.querySelector("#pinnedRepo");
 
 const reposOnDom = (array) => {
-  let pinnedRepoString = "";
+  let pinnedRepoString = "<h5>Pinned</h5>";
 
   for (const item of array) {
     pinnedRepoString += `
@@ -210,8 +210,6 @@ const reposOnDom = (array) => {
   }
   renderToDom("#pinnedRepo", pinnedRepoString);
 };
-
-// Filter Starred Repos
 
 //render full repo list to DOM (repos page)
 const repoListOnDom = (array) => {
