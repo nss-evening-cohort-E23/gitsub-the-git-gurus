@@ -218,6 +218,22 @@ const packageCards = (array) => {
   renderToDom("#packagesContainer", domString);
 };
 
+const projectsList = (array) => {
+  let domString = "";
+  for(const project of array) {
+    domString += `<div class="card" style="height: 5rem;">
+    <div class="card-body">
+      <p class="card-text">${project.projName} </p>
+      <p class="card-text">${project.projDesc}</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>`
+  }
+  renderToDom("#projectsList", domString);
+}
+
+
+
 // Create a form - variables for form event listeners
 const addProject = document.querySelector("#addProject");
 const addRepo = document.querySelector("#repoForm");
@@ -304,6 +320,10 @@ const app = () => {
       packageForm();
       profileCard();
     }; 
+  } if (document.URL.includes("projects.html")) {
+    profileCard();
+    newProject();
+    projectsList(projects);
   }
 };
 
