@@ -1,6 +1,8 @@
 body {
-  background-color: bisque;
+  background-color: black;
 }
+
+
 
 .navbar-brand {
   display: flex;
@@ -13,4 +15,11 @@ body {
 
 h1 {
   font-size: 32px;
+}
+
+#projectsList {
+  display:flex;
+  flex-direction:column;
+  width:500px;
+  text-align:left;
 }
