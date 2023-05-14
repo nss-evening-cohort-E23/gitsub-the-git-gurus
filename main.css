@@ -57,3 +57,31 @@ h1 {
   text-align: left;
 >>>>>>> develop
 }
+
+#repo-page-layout {
+  display: flex;
+}
+
+#repoList {
+  display: flex;
+  flex-direction: column;
+}
+
+#repo-card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button[id^="star"] {
+  background-color: whitesmoke;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+button[id^="star"]:hover {
+  background-color: rgb(168, 168, 168);
+}
