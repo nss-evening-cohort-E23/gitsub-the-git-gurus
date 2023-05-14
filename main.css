@@ -22,7 +22,6 @@ h1 {
 }
 
 #projectsList {
-<<<<<<< HEAD
   display:flex;
   background-color:black;
   flex-direction:column;
@@ -32,8 +31,6 @@ h1 {
   margin-right:40%;
   
 }
-
-
 
 .card {
   background-color:black;
@@ -50,12 +47,6 @@ h1 {
 
 #dots {
   margin-left:40%;
-=======
-  display: flex;
-  flex-direction: column;
-  width: 500px;
-  text-align: left;
->>>>>>> develop
 }
 
 #repo-page-layout {
