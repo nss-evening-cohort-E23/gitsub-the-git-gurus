@@ -15,9 +15,73 @@ h1 {
   font-size: 32px;
 }
 
+#container {
+  display:flex;
+  flex-wrap:nowrap;
+  justify-content:space-between;
+}
+
 #projectsList {
+<<<<<<< HEAD
+  display:flex;
+  background-color:black;
+  flex-direction:column;
+  width:500px;
+  align-content:center;
+  font-size:10px;
+  margin-right:40%;
+  
+}
+
+
+
+.card {
+  background-color:black;
+  color:white;
+  border:.5px solid darkgray;
+}
+
+#projectsListBody {
+  display:flex;
+  justify-content:flex-start;
+  flex-direction:row;
+  
+}
+
+#dots {
+  margin-left:40%;
+=======
   display: flex;
   flex-direction: column;
   width: 500px;
   text-align: left;
+>>>>>>> develop
+}
+
+#repo-page-layout {
+  display: flex;
+}
+
+#repoList {
+  display: flex;
+  flex-direction: column;
+}
+
+#repo-card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button[id^="star"] {
+  background-color: whitesmoke;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+button[id^="star"]:hover {
+  background-color: rgb(168, 168, 168);
 }
