@@ -53,13 +53,13 @@ const projects = [
     id: 4,
     projName: "lorem ipsum",
     projStatus: true,
-    projDesc: "lorem ipsum",
+    projDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     id: 5,
     projName: "lorem ipsum",
     projStatus: true,
-    projDesc: "lorem ipsum",
+    projDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
 ];
 
@@ -250,15 +250,20 @@ const packageCards = (array) => {
 
 const projectsList = (array) => {
   let domString = "";
-  for (const project of array) {
-    domString += `<div class="card" style="height: 5rem;">
-    <div class="card-body">
-      <p class="card-text">${project.projName} </p>
+  for(const project of array) {
+    domString += `<div class="card" id="projectList" style="height: 6rem;">
+    <div class="card-body" id="projectsListBody">
+    
+      <p class="card-text"> ${project.projName} </p>
       <p class="card-text">${project.projDesc}</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <i class="bi bi-three-dots" id="dots"></i>
+      <p class="card-text">
+      </p>
     </div>
-  </div>`;
-  }
+    <small class="text"><i class="bi bi-clock"></i> Last updated 3 mins ago</small>
+
+  </div>`
+  };
   renderToDom("#projectsList", domString);
 };
 
@@ -266,30 +271,29 @@ const projectsList = (array) => {
 const addProject = document.querySelector("#addProject");
 const addRepo = document.querySelector("#repoForm");
 const addPackage = document.querySelector("#packagesForm");
+const addPinnedRepo = document.querySelector("#addPinnedRepo");
 
 // Project Form Renders to DOM
-// OVERVIEW - FORM
-const newProject = () => {
+const newPinnedRepo = () => {
   let formString = `<div class="card">
   <div class="card-body">
-    <h1 class="card-title">Create Project</h1>
+    <h1 class="card-title">Create New Pinned Repo</h1>
     <h6 class="card-subtitle mb-2 text-body-secondary">subtext</h6>
    <form id = "pinnedRepoForm"> <div class="mb-3">
   
-   <label for="floatingInput" class="form-label">Project Name</label>
-   <input type="text" class="form-control" id="projectName" placeholder="Project Name" required>
+   <label for="floatingInput" class="form-label"> Pinned Repo Name</label>
+   <input type="text" class="form-control" id="projectName" placeholder="Pinned Repo Name" required>
  </div>
  <div class="mb-3">
    <label for="projectDesc" class="form-label">Description</label>
-   <input type="text" class="form-control" id="projectDesc" placeholder="Project Name" required>
+   <input type="text" class="form-control" id="projectDesc" placeholder="Repo Description" required>
  </div>
  <button class="btn btn-success" id="addRepo">Create repo</button>
 
  </form>
   </div>
 </div>`;
-
-  renderToDom("#addProject", formString);
+  renderToDom("#addPinnedRepo", formString);
 };
 
 // OVERVIEW - CREATE FORM FUNCTIONALITY THAT ADDS TO PINNED REPOS
@@ -337,6 +341,31 @@ const packageForm = () => {
   renderToDom("#packagesForm", formString);
 };
 
+const newProject = () => {
+  let formString = `<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">Create Project</h1>
+    <h6 class="card-subtitle mb-2 text-body-secondary">subtext</h6>
+   <form> <div class="mb-3">
+  
+   <label for="floatingInput" class="form-label">Project Name</label>
+   <input type="text" class="form-control" id="projName" placeholder="Project Name" required>
+ </div>
+ <div class="mb-3">
+   <label for="projectDesc" class="form-label">Description</label>
+   <textarea class="form-control" id="projectDescription" rows="3"></textarea>
+ </div> 
+ <button class="btn btn-success" id="addProject">Create Project</button>
+  </form>
+
+    
+  </div>
+</div>`;
+  renderToDom("#addProject", formString);
+};
+
+
+
 const app = () => {
   document.addEventListener(
     "DOMContentLoaded",
@@ -347,7 +376,7 @@ const app = () => {
   );
   if (document.URL.includes("index.html")) {
     profileCard();
-    newProject();
+    newPinnedRepo();
     reposOnDom(repo);
     const pinnedRepoForm = document.getElementById("pinnedRepoForm");
     const addPinnedRepo = (event) => {
@@ -365,8 +394,8 @@ const app = () => {
     };
 
     pinnedRepoForm.addEventListener("submit", addPinnedRepo);
-  }
-  if (document.URL.includes("repos.html")) {
+ 
+  } if (document.URL.includes("repos.html")) {
     repoForm();
     profileCard();
     repoListOnDom(repo);
@@ -382,6 +411,31 @@ const app = () => {
     profileCard();
     newProject();
     projectsList(projects);
+
+    const createProject = (e) => {
+      e.preventDefault();
+    
+      const newProjList = {
+        id:projects.length + 1,
+        projName: document.getElementById('projName').value,
+        projDesc: document.getElementById('projectDescription').value,
+      }
+      projects.push(newProjList);
+      projectsList(projects);
+      createProject.reset();
+    };
+    addProject.addEventListener('submit', createProject);
+
+    const search = (event) => {
+      const eventLC = event.target.value.toLowerCase();
+      const searchResult = projects.filter(project =>
+        project.projName.toLowerCase().includes(eventLC) ||
+        project.projDesc.toLowerCase().includes(eventLC)
+        );
+        projectsList(searchResult);
+    };
+    document.querySelector('#searchInput').addEventListener('keyup', search);
+    
   }
 };
 
