@@ -217,17 +217,12 @@ const repoListOnDom = (array) => {
   for (const repo of array) {
 
     domString += `<div class="card" id="repo-card" style="width: 40rem height: 10rem;">
-    domString += `<div class="card" id="${repo.repoName}-card" style="width: 18rem;">
     <div class="card-header">${repo.repoName}</div>
     <div class="card-body">
       <div id="repo-card-body">
         <p class="card-text">${repo.repoDesc}</p>
         <button class="btn" id="star--${repo.id}">⭐</button>
       </div>
-    </div>
-  </div>`
-      <p class="card-text">${repo.repoDesc}}</p>
-      <button class="btn" id="star--${repo.id}">⭐</button>
     </div>
   </div>`;
   }
@@ -316,7 +311,7 @@ const repoForm = () => {
    <label for="repoDesc" class="form-label">Description</label>
    <textarea class="form-control" id="repoDesc" rows="3"></textarea>
  </div>  
-     <button class="btn btn-success" id="addRepo">Create repository</button>
+     <button class="btn btn-success" id="addNewRepo">Create repository</button>
  </form>
 
 
@@ -386,8 +381,9 @@ const app = () => {
     repoForm();
     profileCard();
     repoListOnDom(repo);
+    
     //create a new repository
-    const repoFormId = document.getElementById('repoFormId');
+    const repoFormId = document.getElementById("repoFormId");
 
     const createRepository = (e) => {
       e.preventDefault();
