@@ -230,6 +230,14 @@ const repoListOnDom = (array) => {
   renderToDom("#repoList", domString);
 };
 
+
+//render package search bar to DOM
+const packageSearch = () => {
+  domString = `
+  <input type="search" id="packageSearch" placeholder="Search Package Name" required></input>`;
+renderToDom("#packageSearch", domString);
+};
+
 // render package cards to DOM
 const packageCards = (array) => {
   let domString = "";
@@ -243,6 +251,7 @@ const packageCards = (array) => {
           <div class="card-body">
             <h5 class="card-title">${package.packageName}</h5>
             <p class="card-text">${package.packageDesc}</p>
+            <button class="btn btn-danger" id="delete--${package.id}">Delete</button>
           </div>
         </div>
       </div>
@@ -250,6 +259,7 @@ const packageCards = (array) => {
   }
   renderToDom("#packagesContainer", domString);
 };
+
 
 const projectsList = (array) => {
   let domString = "";
@@ -331,18 +341,21 @@ const packageForm = () => {
   let formString = `<div class="card">
   <div class="card-body">
     <h1 class="card-title">Create Package</h1>
-    <h6 class="card-subtitle mb-2 text-body-secondary">subtext</h6>
-   <form> <div class="mb-3">
-  
-   <label for="floatingInput" class="form-label">Package Name</label>
+   <form id = "packForm"> 
+  <div class="mb-3">
+  <label for="floatingInput" class="form-label">Package Name</label>
    <input type="text" class="form-control" id="packageName" placeholder="Package Name" required>
  </div>
  <div class="mb-3">
    <label for="packageDesc" class="form-label">Description</label>
-   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
- </div>  </form>
-
-    <button class="btn btn-success" id="addPackage">Create Package</button>
+   <input type="text" class="form-control" id="packageDesc" placeholder="Package Description" required>
+ </div>  
+  <div class="mb-3">
+  <label for="floatingInput" class="form-label">Package Image</label>
+   <input type="text" class="form-control" id="packageImg" placeholder="Package Image URL" required>
+ </div>
+ <button class="btn btn-success" id="addPackage">Create Package</button>
+ </form>
   </div>
 </div>`;
   renderToDom("#packagesForm", formString);
@@ -443,11 +456,47 @@ repoFormId.addEventListener('submit', createRepository);
   if (document.URL.includes("packages.html")) {
     window.onload = () => {
       packageCards(packageSet);
+      packageSearch();
       packageForm();
       profileCard();
+      
+      const packForm = document.getElementById('packForm');
+      const newPackage = (e) => {
+        e.preventDefault();
+          const newPackageObj = {
+            id: packageSet.length + 1,
+            packageIcon: document.getElementById('packageImg').value, 
+            packageName: document.getElementById('packageName').value,
+            packageDesc: document.getElementById('packageDesc').value,
+          }
+          packageSet.push(newPackageObj);
+          packageCards(packageSet);
+          packForm.reset();
+        };
+        packForm.addEventListener('submit', newPackage);
+
+    // delete function
+    const deletePackage = document.getElementById('packagesContainer');
+
+    deletePackage.addEventListener('click', (e) => {
+      const [, id] = e.target.id.split("--");
+      const packIndex = packageSet.findIndex(package => package.id === Number(id));
+      packageSet.splice(packIndex, 1);
+      packageCards(packageSet);
+    });
+
+    // package search function
+    const searchPackage = (e) => {
+      const eventLC = event.target.value.toLowerCase();
+      const packageSearchResult = packageSet.filter(item =>
+        item.packageName.toLowerCase().includes(eventLC) ||
+        item.packageDesc.toLowerCase().includes(eventLC)
+        );
+        packageCards(packageSearchResult);
     };
+    document.getElementById('packageSearch').addEventListener('keyup', searchPackage);
   }
-  if (document.URL.includes("projects.html")) {
+  } if (document.URL.includes("projects.html")) {
     profileCard();
     newProject();
     projectsList(projects);
@@ -478,5 +527,6 @@ repoFormId.addEventListener('submit', createRepository);
     
   }
 };
+
 
 app();
