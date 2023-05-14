@@ -262,22 +262,22 @@ const projectsList = (array) => {
 const addProject = document.querySelector("#addProject");
 const addRepo = document.querySelector("#repoForm");
 const addPackage = document.querySelector("#packagesForm");
-
+const addPinnedRepo = document.querySelector("#addPinnedRepo");
 
 // Project Form Renders to DOM
-const newProject = () => {
+const newPinnedRepo = () => {
   let formString = `<div class="card">
   <div class="card-body">
-    <h1 class="card-title">Create Project</h1>
+    <h1 class="card-title">Create New Pinned Repo</h1>
     <h6 class="card-subtitle mb-2 text-body-secondary">subtext</h6>
    <form> <div class="mb-3">
   
-   <label for="floatingInput" class="form-label">Project Name</label>
+   <label for="floatingInput" class="form-label"> Pinned Repo Name</label>
    <input type="text" class="form-control" id="projectName" placeholder="Project Name" required>
  </div>
  <div class="mb-3">
    <label for="projectDesc" class="form-label">Description</label>
-   <textarea class="form-control" id="projectDescription" rows="3"></textarea>
+   <textarea class="form-control" id="projectDesc" rows="3"></textarea>
  </div> 
  <button class="btn btn-success" id="addRepo">Create repo</button>
   </form>
@@ -285,7 +285,7 @@ const newProject = () => {
     
   </div>
 </div>`;
-  renderToDom("#addProject", formString);
+  renderToDom("#addPinnedRepo", formString);
 };
 
 
@@ -335,6 +335,29 @@ const packageForm = () => {
   renderToDom("#packagesForm", formString);
 };
 
+const newProject = () => {
+  let formString = `<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">Create Project</h1>
+    <h6 class="card-subtitle mb-2 text-body-secondary">subtext</h6>
+   <form> <div class="mb-3">
+  
+   <label for="floatingInput" class="form-label">Project Name</label>
+   <input type="text" class="form-control" id="projName" placeholder="Project Name" required>
+ </div>
+ <div class="mb-3">
+   <label for="projectDesc" class="form-label">Description</label>
+   <textarea class="form-control" id="projectDescription" rows="3"></textarea>
+ </div> 
+ <button class="btn btn-success" id="addProject">Create Project</button>
+  </form>
+
+    
+  </div>
+</div>`;
+  renderToDom("#addProject", formString);
+};
+
 
 
 const app = () => {
@@ -343,7 +366,7 @@ const app = () => {
   }, false);
   if (document.URL.includes("index.html")) {
       profileCard();
-      newProject();
+      newPinnedRepo();
       reposOnDom();
   } if (document.URL.includes("repos.html")) {
     repoForm();
@@ -365,7 +388,7 @@ const app = () => {
     
       const newProjList = {
         id:projects.length + 1,
-        projName: document.getElementById('projectName').value,
+        projName: document.getElementById('projName').value,
         projDesc: document.getElementById('projectDescription').value,
       }
       projects.push(newProjList);
