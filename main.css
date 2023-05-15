@@ -15,45 +15,27 @@ h1 {
   font-size: 32px;
 }
 
-#container {
-  display:flex;
-  flex-wrap:nowrap;
-  justify-content:space-between;
-}
-
-#projectsList {
-<<<<<<< HEAD
-  display:flex;
-  background-color:black;
-  flex-direction:column;
-  width:500px;
-  align-content:center;
-  font-size:10px;
-  margin-right:40%;
-  
-}
-
-
-
 .card {
-  background-color:black;
-  color:white;
-  border:.5px solid darkgray;
-}
-
-#projectsListBody {
-  display:flex;
-  justify-content:flex-start;
-  flex-direction:row;
-  
+  background-color: black;
+  color: white;
+  border: 0.5px solid darkgray;
 }
 
 #dots {
-  margin-left:40%;
+  margin-right: 10px;
 }
 
 #repo-page-layout {
   display: flex;
+}
+
+.updated {
+  text-align: right;
+}
+
+#repo-list-form-div {
+  margin-top: 20px;
+  margin-right: 20px;
 }
 
 #repoList {
@@ -78,4 +60,149 @@ button[id^="star"] {
 
 button[id^="star"]:hover {
   background-color: rgb(168, 168, 168);
+}
+
+#profileCard {
+  margin: 20px;
+}
+
+.profile-card {
+  text-align: center;
+  background-color: white;
+  border: 1px solid white;
+  color: rgb(32, 31, 31);
+  height: 35rem;
+}
+
+.sm-links {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-text {
+  text-align: left;
+  margin: 10px 20px 30px 20px;
+}
+
+.card-title {
+  margin-top: 20px;
+}
+
+.card-img-top {
+  margin-top: 20px;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  border: 1px solid rgb(89, 89, 89);
+}
+
+#repoForm {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.card-header {
+  font-weight: bolder;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  color: rgb(89, 89, 89);
+}
+
+.fa-solid fa-ghost {
+  margin-right: 2px;
+}
+
+.footer-container {
+  margin-top: 10px;
+}
+
+.footer-text {
+  margin-left: 0px;
+}
+
+#index-page-layout {
+  display: flex;
+}
+
+#pinnedRepo {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.pinned-card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.package-page-layout {
+  display: flex;
+}
+
+.package-card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#packagesContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+#package-list-from-div {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+#packagesForm {
+  margin-top: 20px;
+}
+
+#addPinnedRepo {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.project-page-layout {
+  display: flex;
+}
+
+#projectsList {
+  display: flex;
+  flex-direction: column;
+}
+
+#project-list-form-div {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#addProject {
+  margin-top: 20px;
+}
+
+#project-card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-card-header {
+  display: flex;
+  flex-direction: row;
+  font-weight: bolder;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10px;
 }
