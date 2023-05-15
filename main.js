@@ -520,9 +520,11 @@ const app = () => {
       };
       projects.push(newProjList);
       projectsList(projects);
-      createProject.reset();
+      document.getElementById("projName").value = "";
+      document.getElementById("projectDescription").value = "";
     };
     addProject.addEventListener("submit", createProject);
+    
 
     const search = (event) => {
       const eventLC = event.target.value.toLowerCase();
