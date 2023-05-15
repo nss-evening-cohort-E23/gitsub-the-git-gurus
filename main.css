@@ -129,6 +129,11 @@ button[id^="star"]:hover {
   display: flex;
 }
 
+#index-list-form-div {
+  width: 100%;
+  margin-right: 20px;
+}
+
 #pinnedRepo {
   display: flex;
   flex-direction: column;
@@ -185,6 +190,8 @@ button[id^="star"]:hover {
 #project-list-form-div {
   margin-top: 20px;
   margin-bottom: 20px;
+  margin-right: 20px;
+  width: 100%;
 }
 
 #addProject {
