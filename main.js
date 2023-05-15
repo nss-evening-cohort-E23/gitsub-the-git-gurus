@@ -259,7 +259,7 @@ const packageCards = (array) => {
 const projectsList = (array) => {
   let domString = "";
   for (const project of array) {
-    domString += `<div class="card" style="width: 40rem height: 10rem;">
+    domString += `<div class="card">
     <div class="project-card-header"> ${project.projName} 
     <i class="bi bi-three-dots" id="dots"></i>
     </div>
