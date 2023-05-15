@@ -3,7 +3,7 @@ const user = [
   {
     id: 1,
     imageUrl:
-      "https://www.animationmagazine.net/wordpress/wp-content/uploads/ali-wong-post.jpg",
+      "https://www.sunglassesid.com/sites/default/files/upload/sighting/sunglasses-ali-wong-beef-pool.jpg",
     userName: "Amy Lau",
     userBio:
       "Small business owner who operates a plant-selling business called Kōyōhaus. Recently involved in a road rage incident.",
@@ -166,13 +166,13 @@ const renderToDom = (divID, htmlToRender) => {
 
 // profile card render to DOM
 const profileCard = () => {
-  let domString = `<div class="card" style="width: 18rem;">
+  let domString = `<div class="profile-card" style="width: 19rem;">
   <img src="${user[0].imageUrl}" class="card-img-top" alt="Amy Lau Photo">
   <div class="card-body">
     <h5 class="card-title">${user[0].userName}</h5>
     <p class="card-text">${user[0].userBio}</p>
   </div>
-  <div class="card-body">
+  <div class="sm-links">
     <a href="${user[0].socialMedia[0].url}" class="card-link">${user[0].socialMedia[0].smName}</a>
     <a href="${user[0].socialMedia[1].url}" class="card-link">${user[0].socialMedia[1].smName}</a>
     <a href="${user[0].socialMedia[2].url}" class="card-link">${user[0].socialMedia[2].smName}</a>
@@ -196,17 +196,18 @@ const profileCard = () => {
 const pinnedRepo = document.querySelector("#pinnedRepo");
 
 const reposOnDom = (array) => {
-  let pinnedRepoString = "<h5>Pinned</h5>";
-
+  let pinnedRepoString = "";
   for (const item of array) {
     pinnedRepoString += `
-    <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">${item.repoName}</h5>
-      <p class="card-text">${item.repoDesc}</p>
-  </div>
-  <div class="card-footer"> <button class="btn" id="star--${repo.id}">⭐</button>
-  </div></div>`;
+    <div class="card" style="width: 40rem;">
+      <div class="card-header">${item.repoName}</div>
+      <div class="card-body">
+        <div class="pinned-card-body">
+          <p class="card-text">${item.repoDesc}</p>
+          <button class="btn" id="star--${repo.id}">⭐</button>
+        </div>
+      </div>
+    </div>`;
   }
   renderToDom("#pinnedRepo", pinnedRepoString);
 };
@@ -234,7 +235,9 @@ const repoListOnDom = (array) => {
 //render package search bar to DOM
 const packageSearch = () => {
   domString = `
-  <input type="search" id="packageSearch" placeholder="Search Package Name" required></input>`;
+  <div class="input-group mb-3" id="packageSearch">
+  <input type="text" class="form-control" id="searchInput" placeholder="Search Package Name...">
+</div>`;
 renderToDom("#packageSearch", domString);
 };
 
@@ -242,20 +245,15 @@ renderToDom("#packageSearch", domString);
 const packageCards = (array) => {
   let domString = "";
   for (package of array) {
-    domString += `<div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="${package.packageIcon}" class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">${package.packageName}</h5>
-            <p class="card-text">${package.packageDesc}</p>
-            <button class="btn btn-danger" id="delete--${package.id}">Delete</button>
-          </div>
-        </div>
+    domString += `<div class="card" style="width: 40rem;">
+    <div class="card-header">${package.packageName}</div>
+    <div class="card-body">
+      <div class="package-card-body">
+        <p class="card-text">${package.packageDesc}</p>
+        <button class="btn btn-danger" id="delete--${package.id}">Delete</button>
       </div>
-    </div>`;
+    </div>
+  </div>`;
   }
   renderToDom("#packagesContainer", domString);
 };
@@ -264,17 +262,18 @@ const packageCards = (array) => {
 const projectsList = (array) => {
   let domString = "";
   for(const project of array) {
-    domString += `<div class="card" id="projectList" style="height: 6rem;">
-    <div class="card-body" id="projectsListBody">
-    
-      <p class="card-text"> ${project.projName} </p>
-      <p class="card-text">${project.projDesc}</p>
-      <i class="bi bi-three-dots" id="dots"></i>
-      <p class="card-text">
-      </p>
+    domString += `<div class="card" style="width: 40rem;">
+    <div class="project-card-header"> ${project.projName} 
+    <i class="bi bi-three-dots" id="dots"></i>
     </div>
-    <small class="text"><i class="bi bi-clock"></i> Last updated 3 mins ago</small>
-
+    <div class="card-body">
+      <div class="project-card-body">
+        <p class="card-text">${project.projDesc}</p>
+        <div class="updated">
+        <small class="text"><i class="bi bi-clock"></i> Last updated 3 mins ago</small>
+        </div>
+      </div>
+    </div>
   </div>`
   };
   renderToDom("#projectsList", domString);
@@ -291,7 +290,6 @@ const newPinnedRepo = () => {
   let formString = `<div class="card">
   <div class="card-body">
     <h1 class="card-title">Create New Pinned Repo</h1>
-    <h6 class="card-subtitle mb-2 text-body-secondary">subtext</h6>
    <form id = "pinnedRepoForm"> <div class="mb-3">
   
    <label for="floatingInput" class="form-label"> Pinned Repo Name</label>
@@ -301,7 +299,7 @@ const newPinnedRepo = () => {
    <label for="projectDesc" class="form-label">Description</label>
    <input type="text" class="form-control" id="projectDesc" placeholder="Repo Description" required>
  </div>
- <button class="btn btn-success" id="addRepo">Create repo</button>
+ <button class="btn btn-success" id="addRepo">Pin Repository</button>
 
  </form>
   </div>
@@ -325,7 +323,7 @@ const repoForm = () => {
    <label for="repoDesc" class="form-label">Description</label>
    <textarea class="form-control" id="repoDesc" rows="3"></textarea>
  </div>  
-     <button class="btn btn-success" id="addNewRepo">Create repository</button>
+     <button class="btn btn-success" id="addNewRepo">Create Repository</button>
  </form>
 
 
@@ -350,10 +348,6 @@ const packageForm = () => {
    <label for="packageDesc" class="form-label">Description</label>
    <input type="text" class="form-control" id="packageDesc" placeholder="Package Description" required>
  </div>  
-  <div class="mb-3">
-  <label for="floatingInput" class="form-label">Package Image</label>
-   <input type="text" class="form-control" id="packageImg" placeholder="Package Image URL" required>
- </div>
  <button class="btn btn-success" id="addPackage">Create Package</button>
  </form>
   </div>
@@ -365,7 +359,6 @@ const newProject = () => {
   let formString = `<div class="card">
   <div class="card-body">
     <h1 class="card-title">Create Project</h1>
-    <h6 class="card-subtitle mb-2 text-body-secondary">subtext</h6>
    <form> <div class="mb-3">
   
    <label for="floatingInput" class="form-label">Project Name</label>
@@ -377,8 +370,6 @@ const newProject = () => {
  </div> 
  <button class="btn btn-success" id="addProject">Create Project</button>
   </form>
-
-    
   </div>
 </div>`;
   renderToDom("#addProject", formString);
@@ -391,6 +382,24 @@ const app = () => {
     "DOMContentLoaded",
     function () {
       profileCard();
+    newPinnedRepo();
+    reposOnDom(repo);
+    const pinnedRepoForm = document.getElementById("pinnedRepoForm");
+    const addPinnedRepo = (event) => {
+      event.preventDefault();
+      const newPinnedRepoObj = {
+        id: repo.length + 1,
+        repoName: document.getElementById("projectName").value,
+        repoDesc: document.getElementById("projectDesc").value,
+        repoStar: true,
+      };
+
+      repo.push(newPinnedRepoObj);
+      reposOnDom(repo);
+      pinnedRepoForm.reset();
+    };
+
+    pinnedRepoForm.addEventListener("submit", addPinnedRepo);
     },
     false
   );
@@ -465,7 +474,6 @@ repoFormId.addEventListener('submit', createRepository);
         e.preventDefault();
           const newPackageObj = {
             id: packageSet.length + 1,
-            packageIcon: document.getElementById('packageImg').value, 
             packageName: document.getElementById('packageName').value,
             packageDesc: document.getElementById('packageDesc').value,
           }
