@@ -16,9 +16,9 @@ h1 {
 }
 
 .card {
-  background-color:black;
-  color:white;
-  border:.5px solid darkgray;
+  background-color: black;
+  color: white;
+  border: 0.5px solid darkgray;
 }
 
 #dots {
@@ -110,7 +110,7 @@ button[id^="star"]:hover {
   display: flex;
   justify-content: center;
   background-color: white;
-  color: rgb(89, 89, 89);;
+  color: rgb(89, 89, 89);
 }
 
 .fa-solid fa-ghost {
@@ -129,8 +129,7 @@ button[id^="star"]:hover {
   display: flex;
 }
 
-
-#pinnedRepo{
+#pinnedRepo {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
@@ -154,7 +153,7 @@ button[id^="star"]:hover {
   align-items: center;
 }
 
-#packagesContainer{
+#packagesContainer {
   display: flex;
   flex-direction: column;
 }
@@ -174,11 +173,11 @@ button[id^="star"]:hover {
   margin-bottom: 20px;
 }
 
-.project-page-layout{
+.project-page-layout {
   display: flex;
 }
 
-#projectsList{
+#projectsList {
   display: flex;
   flex-direction: column;
 }
